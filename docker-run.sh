@@ -7,4 +7,4 @@ docker run \
   -p 1883:1883 \
   -v "$(pwd)"/mosquitto:/etc/mosquitto \
   --net mqtt-network \
-  raspberrypi-local-mqttBroker-img
+  c4stus/raspberrypi:mqttbroker

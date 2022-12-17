@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t raspberrypi-local-mqttBroker-img .
+docker build -t c4stus/raspberrypi:mqttbroker .
