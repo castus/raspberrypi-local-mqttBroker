@@ -42,7 +42,6 @@ RUN apt-add-repository ppa:mosquitto-dev/mosquitto-ppa
 RUN apt-get install -yq mosquitto mosquitto-clients
 
 COPY mosquitto.conf mosquitto.conf
-COPY passwd passwd
 
 EXPOSE 1883
 
