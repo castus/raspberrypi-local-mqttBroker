@@ -15,10 +15,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Correct system clock
-      run: |
-        sudo systemctl restart systemd-timesyncd.service
-
     - name: Docker Login
       uses: docker/login-action@v2.1.0
       with:
