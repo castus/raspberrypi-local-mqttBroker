@@ -24,6 +24,6 @@ jobs:
     - name: Build and push Docker image
       uses: docker/build-push-action@v3.2.0
       with:
-        #platforms: # optional
+        platforms: linux/arm/v7
         push: true
         tags: c4stus/raspberrypi:mqttbroker
