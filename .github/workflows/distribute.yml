@@ -17,8 +17,7 @@ jobs:
 
     - name: Install docker
       run: |
-        brew install docker
-        brew install docker-compose
+        brew cask install docker
         /Volumes/Docker/Docker.app/Contents/MacOS/install
 
     - name: Docker Login
