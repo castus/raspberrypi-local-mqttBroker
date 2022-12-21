@@ -15,16 +15,26 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Install cask
-      run: |
-        brew install --cask docker
+    - name: setup-docker
+      uses: docker-practice/actions-setup-docker@1.0.11
 
-    - name: Install docker
-      run: |
-        set -eux
-        /Applications/Docker.app/Contents/MacOS/install
-        brew install docker
-        open -a /Applications/Docker.app
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v2
+      platforms: linux/arm/v7
+
+    - name: Docker Setup Buildx
+      uses: docker/setup-buildx-action@v2.2.1
+
+#    - name: Install cask
+#      run: |
+#        brew install --cask docker
+#
+#    - name: Install docker
+#      run: |
+#        set -eux
+#        /Applications/Docker.app/Contents/MacOS/install
+#        brew install docker
+#        open -a /Applications/Docker.app
 
 #    - name: Docker Login
 #      uses: docker/login-action@v2.1.0
