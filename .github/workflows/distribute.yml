@@ -15,13 +15,13 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-#    - name: setup-docker
-#      uses: docker-practice/actions-setup-docker@1.0.11
+    - name: setup-docker
+      uses: docker-practice/actions-setup-docker@1.0.11
 
-    - name: Install cask
-      run: |
-        brew install --cask docker
-        open -a /Applications/Docker.app
+#    - name: Install cask
+#      run: |
+#        brew install --cask docker
+#        open -a /Applications/Docker.app
 
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
