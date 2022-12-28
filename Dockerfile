@@ -25,6 +25,6 @@ COPY mosquitto.conf mosquitto.conf
 
 EXPOSE 1883
 
-CMD mosquitto -c /etc/mosquitto/mosquitto.conf
-
 WORKDIR /etc/mosquitto
+
+CMD mosquitto -c /etc/mosquitto/mosquitto.conf

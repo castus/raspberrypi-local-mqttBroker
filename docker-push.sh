@@ -1,4 +1,3 @@
 #!/bin/bash
 
-sh docker-build.sh
-docker push c4stus/raspberrypi:mqttbroker
+docker buildx build --platform linux/arm/v7 --push -t c4stus/raspberrypi:mqttbroker .
