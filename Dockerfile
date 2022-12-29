@@ -21,10 +21,10 @@ ENV LANG en_US.utf8
 RUN apt-add-repository ppa:mosquitto-dev/mosquitto-ppa
 RUN apt-get install -yq mosquitto mosquitto-clients
 
+WORKDIR /etc/mosquitto
+
 COPY mosquitto.conf mosquitto.conf
 
 EXPOSE 1883
-
-WORKDIR /etc/mosquitto
 
 CMD mosquitto -c /etc/mosquitto/mosquitto.conf
