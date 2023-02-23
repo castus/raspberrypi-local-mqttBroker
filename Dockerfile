@@ -1,4 +1,7 @@
-FROM arm32v7/ubuntu:22.04
+FROM --platform=$BUILDPLATFORM ubuntu:kinetic AS builder
+ARG TARGETPLATFORM
+ARG BUILDPLATFORM
+RUN echo "I am running on $BUILDPLATFORM, building for $TARGETPLATFORM"
 
 RUN apt-get update -y && apt-get upgrade -y && apt-get install -yq --no-install-recommends \
     build-essential \
@@ -20,10 +23,15 @@ ENV LANG en_US.utf8
 
 RUN apt-add-repository ppa:mosquitto-dev/mosquitto-ppa
 RUN apt-get install -yq mosquitto mosquitto-clients
-
+RUN mkdir -m 777 /run/mosquitto/
 WORKDIR /etc/mosquitto
 
 COPY mosquitto.conf mosquitto.conf
+
+FROM --platform=$BUILDPLATFORM builder
+ARG TARGETPLATFORM
+ARG BUILDPLATFORM
+RUN echo "I am running on $BUILDPLATFORM, building for $TARGETPLATFORM"
 
 EXPOSE 1883
 
