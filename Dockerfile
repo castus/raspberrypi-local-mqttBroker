@@ -1,4 +1,4 @@
-FROM --platform=$BUILDPLATFORM ubuntu:kinetic AS builder
+FROM --platform=$TARGETPLATFORM ubuntu:kinetic AS builder
 ARG TARGETPLATFORM
 ARG BUILDPLATFORM
 RUN echo "I am running on $BUILDPLATFORM, building for $TARGETPLATFORM"
@@ -28,7 +28,7 @@ WORKDIR /etc/mosquitto
 
 COPY mosquitto.conf mosquitto.conf
 
-FROM --platform=$BUILDPLATFORM builder
+FROM --platform=$TARGETPLATFORM builder
 ARG TARGETPLATFORM
 ARG BUILDPLATFORM
 RUN echo "I am running on $BUILDPLATFORM, building for $TARGETPLATFORM"
